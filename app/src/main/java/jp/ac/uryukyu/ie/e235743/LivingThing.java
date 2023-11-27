@@ -7,20 +7,41 @@ public class LivingThing {
     private int attack;
     private boolean dead;
 
-    public LivingThing (String name, int maximumHP, int attack) {
-        this.name = name;
-        hitPoint = maximumHP;
-        this.attack = attack;
-        dead = false;
-        System.out.printf("%sのHPは%d。攻撃力は%dです。\n", name, maximumHP, attack);
+    public LivingThing(String _name, int _hitPoint, int _attack){
+        this.setName(_name);
+        this.setHitPoint(_hitPoint);
+        this.setAttack(_attack);
+        this.setDead(this.dead);
+        System.out.printf("%sのHPは%d。攻撃力は%dです。\n", _name, _hitPoint, _attack);
+    }
+    //setter
+    public void setName(String _name){
+        this.name = _name;
+    }
+    public void setHitPoint(int _hitPoint){
+        this.hitPoint = _hitPoint;
+    }
+    public void setAttack(int _attack){
+        this.attack = _attack;
+    }
+    public void setDead(boolean _dead){
+        this.dead = _dead;
     }
 
-    public boolean isDead(){
-        return this.dead;
-    }
+    //getter
     public String getName(){
         return this.name;
     }
+    public int getHitPoint(){
+        return this.hitPoint;
+    }
+    public int getAttack(){
+        return this.attack;
+    }
+    public boolean isDead(){
+        return this.dead;
+    }
+
 
     public void attack(LivingThing opponent){
         if(hitPoint > 0){
